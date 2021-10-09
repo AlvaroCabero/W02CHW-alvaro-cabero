@@ -30,6 +30,8 @@ function revivir(tablero_anterior) {
     for (let j = 0; j < tablero_anterior[i].length; j++) {
       //tablero_nuevo[i][j] = 1;
       if (tablero_anterior[i][j] === 1) {
+        revisar_vecinos(tablero_anterior, i, j);
+        tablero_nuevo = tablero_anterior;
       }
     }
   }
@@ -38,9 +40,9 @@ function revivir(tablero_anterior) {
   return tablero_nuevo;
 }
 
-function revisar() {
+function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
   for (let l = i - 1; l <= i + 1; l++) {
-    tablero_nuevo[l] = 2;
+    tablero_revisado[l] = 2;
     //.......
   }
 }
