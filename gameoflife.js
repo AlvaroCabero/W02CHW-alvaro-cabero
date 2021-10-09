@@ -13,6 +13,7 @@ const tablero = Array(numfilas)
   .map(() => Array(numColumnas).fill(0));
 const tablero_anterior = tablero;
 
+let contador_vecinos = 0;
 //configuración inicial de ejemplo básico
 for (let k = 1; k < 4; k++) {
   tablero_anterior[k][2] = 1;
@@ -30,8 +31,11 @@ function revivir(tablero_anterior) {
     for (let j = 0; j < tablero_anterior[i].length; j++) {
       //tablero_nuevo[i][j] = 1;
       if (tablero_anterior[i][j] === 1) {
-        revisar_vecinos(tablero_anterior, i, j);
+        contador_vivos = revisar_vecinos(tablero_anterior, i, j);
         tablero_nuevo = tablero_anterior;
+      }
+      if (tablero_anterior[i][j] === 0) {
+        contador_vivosrevisar_vecinos(tablero_anterior, i, j);
       }
     }
   }
@@ -41,10 +45,16 @@ function revivir(tablero_anterior) {
 }
 
 function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
-  for (let l = i - 1; l <= i + 1; l++) {
-    tablero_revisado[l] = 2;
-    //.......
+  for (let l = posXActual - 1; l <= posXActual + 1; l++) {
+    for (let m = posYActual - 1; m <= posYActual + 1; m++) {
+      if (tablero_revisado[l][m] === 2) {
+        if (l !== posXActual || m !== posYActual) {
+          contador_vecinos++;
+        }
+      } //.......
+    }
   }
+  return contador_vecinos;
 }
 
 revivir(tablero);
