@@ -29,7 +29,6 @@ function revivir(tablero_actual) {
 
   for (let i = 0; i < tablero_actual.length; i++) {
     for (let j = 0; j < tablero_actual[i].length; j++) {
-      
       if (tablero_actual[i][j] === 1) {
         contador_vivos = revisar_vecinos(tablero_actual, i, j);
         if (contador_vivos === 2 || contador_vivos === 3) {
@@ -40,6 +39,7 @@ function revivir(tablero_actual) {
       }
       if (tablero_actual[i][j] === 0) {
         contador_vivos = revisar_vecinos(tablero_actual, i, j);
+
         if (contador_vivos === 3) {
           tablero_nuevo[i][j] = 1;
         } else {
@@ -56,38 +56,28 @@ function revivir(tablero_actual) {
 }
 
 function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
-  console.log(tablero_revisado);
+  /*console.log(tablero_revisado);
   console.log(posXActual);
-  console.log(posYActual);
-  
-    
-    posXAdaptadaMin = posXActual +1;
-    posXAdaptadaMax = posXActual +1;
-    posYAdaptadaMin = posYActual -1;
-    posYAdaptadaMax = posYActual +1;
+  console.log(posYActual);*/
 
-  if (posXActual === 0 )
-  {
+  let posXAdaptadaMin = posXActual + 1;
+  let posXAdaptadaMax = posXActual + 1;
+  let posYAdaptadaMin = posYActual - 1;
+  let posYAdaptadaMax = posYActual + 1;
+
+  if (posXActual === 0) {
     posXAdaptadaMin = posXActual;
-
   }
-  if() posYActual === 0 ){
-
+  if (posYActual === 0) {
     posYAdaptadaMin = posYActual;
-
   }
-  if (posXActual === (tablero_revisado.length-1) )
-  {
+  if (posXActual === tablero_revisado.length - 1) {
     posXAdaptadaMax = posXActual;
-
   }
-  if( posYActual ===  (tablero_revisado[posXActual].length-1) ){
-
+  if (posYActual === tablero_revisado[posXActual].length - 1) {
     posYAdaptadaMax = posYActual;
-
   }
 
-  
   for (let l = posXAdaptadaMin; l <= posXAdaptadaMax; l++) {
     for (let m = posYAdaptadaMin; m <= posYAdaptadaMax; m++) {
       if (tablero_revisado[l][m] === 1) {
