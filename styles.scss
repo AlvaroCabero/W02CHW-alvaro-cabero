@@ -27,6 +27,20 @@
     color: rgb(220, 212, 248);
   }
 }
+.main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__scenario {
+    margin: 50px 100px;
+    color: darkgray;
+    padding: 20px 50px;
+  }
+  &__board {
+    background-color: darkgray;
+  }
+}
 
 .footer_box {
   width: 100vw;
