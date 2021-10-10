@@ -6,19 +6,24 @@
 //let tablero_nuevo = [];
 //console.log(tablero);
 
-const numfilas = 6;
-const numColumnas = 6;
+const numfilas = 25;
+const numColumnas = 25;
 const tablero = Array(numfilas)
   .fill(0)
   .map(() => Array(numColumnas).fill(0));
-const tablero_actual = tablero;
 
-let contador_vecinos = 0;
 //configuración inicial de ejemplo básico
-for (let k = 1; k < 4; k++) {
-  tablero_actual[k][2] = 1;
+for (let k = 0; k < 12; k++) {
+  tablero[k][4] = 1;
 }
-console.table(tablero_actual);
+for (let k = 6; k < 20; k++) {
+  tablero[k][3] = 1;
+}
+for (let k = 15; k < 24; k++) {
+  tablero[k][5] = 1;
+}
+
+console.table(tablero);
 
 function revivir(tablero_actual) {
   //let tablero_nuevo = [[], [], []];
@@ -27,14 +32,18 @@ function revivir(tablero_actual) {
     .fill(0)
     .map(() => Array(numColumnas).fill(0));
 
+  let contador_vivos = 0;
+
   for (let i = 0; i < tablero_actual.length; i++) {
     for (let j = 0; j < tablero_actual[i].length; j++) {
       if (tablero_actual[i][j] === 1) {
         contador_vivos = revisar_vecinos(tablero_actual, i, j);
         if (contador_vivos === 2 || contador_vivos === 3) {
           tablero_nuevo[i][j] = 1;
+          //console.log("Bien = " + contador_vivos);
         } else {
           tablero_nuevo[i][j] = 0;
+          // console.log(contador_vivos);
         }
       }
       if (tablero_actual[i][j] === 0) {
@@ -45,8 +54,6 @@ function revivir(tablero_actual) {
         } else {
           tablero_nuevo[i][j] = 0;
         }
-      } else {
-        tablero_nuevo[i][j] = 0;
       }
     }
   }
@@ -59,8 +66,9 @@ function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
   /*console.log(tablero_revisado);
   console.log(posXActual);
   console.log(posYActual);*/
+  let contador_vecinos = 0;
 
-  let posXAdaptadaMin = posXActual + 1;
+  let posXAdaptadaMin = posXActual - 1;
   let posXAdaptadaMax = posXActual + 1;
   let posYAdaptadaMin = posYActual - 1;
   let posYAdaptadaMax = posYActual + 1;
@@ -77,7 +85,7 @@ function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
   if (posYActual === tablero_revisado[posXActual].length - 1) {
     posYAdaptadaMax = posYActual;
   }
-
+  //console.log(posXAdaptadaMin);
   for (let l = posXAdaptadaMin; l <= posXAdaptadaMax; l++) {
     for (let m = posYAdaptadaMin; m <= posYAdaptadaMax; m++) {
       if (tablero_revisado[l][m] === 1) {
