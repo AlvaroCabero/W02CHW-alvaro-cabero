@@ -3,9 +3,9 @@
 function revivir(tablero_actual) {
   //let tablero_nuevo = [[], [], []];
   //console.log(tablero_anterior.length);
-  let tablero_nuevo = Array(numfilas)
+  let tablero_nuevo = Array(5)
     .fill(0)
-    .map(() => Array(numColumnas).fill(0));
+    .map(() => Array(5).fill(0));
 
   let contador_vivos = 0;
 
@@ -32,7 +32,6 @@ function revivir(tablero_actual) {
       }
     }
   }
- 
 
   return tablero_nuevo;
 }
@@ -73,7 +72,6 @@ function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
   return contador_vecinos;
 }
 
-
 describe("Given a revivir function and a revisar_vecinos", () => {
   describe("When it receives an array [[0,0,0,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,0,0,0]", () => {
     test("Then it should return a 5*5 array with all values equal to 0", () => {
@@ -83,8 +81,8 @@ describe("Given a revivir function and a revisar_vecinos", () => {
         [0, 1, 1, 1, 0],
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0],
-      ]
-      
+      ];
+
       const expected = [
         [0, 0, 0, 0, 0],
         [0, 0, 1, 0, 0],
@@ -93,13 +91,13 @@ describe("Given a revivir function and a revisar_vecinos", () => {
         [0, 0, 0, 0, 0],
       ];
 
-
       const result = revivir(tablero);
 
       expect(result).toEqual(expected);
     });
+  });
 
-    describe("When it receives an array [[0,0,0,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,0,0,0]", () => {
+  describe("When it receives an array [[0,0,0,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,0,0,0]", () => {
     test("Then it should return an 5*5 array [[0,0,0,0,0],[0,0,0,0,0],[0,1,1,1,0],[0,0,0,0,0],[0,0,0,0,0]", () => {
       const tablero = [
         [0, 0, 0, 0, 0],
@@ -107,8 +105,8 @@ describe("Given a revivir function and a revisar_vecinos", () => {
         [0, 0, 1, 0, 0],
         [0, 0, 1, 0, 0],
         [0, 0, 0, 0, 0],
-      ]
-      
+      ];
+
       const expected = [
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0],
@@ -121,5 +119,5 @@ describe("Given a revivir function and a revisar_vecinos", () => {
 
       expect(result).toEqual(expected);
     });
-
-
+  });
+});
