@@ -13,11 +13,13 @@ const tablero = Array(numfilas)
   .map(() => Array(numColumnas).fill(0));
 
 for (let o = 0; o < tablero.length; o++) {
-  document.querySelectorAll(".board").insertAdjacentHtml(
-    "beforeend",
-    `<div class="board__cell">
+  for (let p = 0; p < tablero[o].length; p++) {
+    document.querySelectorAll(".board").insertAdjacentHtml(
+      "beforeend",
+      `<div class="board__cell">
     </div>`
-  );
+    );
+  }
 }
 //configuración inicial de ejemplo básico
 for (let k = 0; k < 12; k++) {
@@ -106,3 +108,8 @@ function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
 }
 
 revivir(tablero);
+
+/* module.exports = {
+  revivir,
+  revisar_vecinos,
+}; */
