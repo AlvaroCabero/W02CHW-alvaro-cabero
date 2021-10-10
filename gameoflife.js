@@ -108,3 +108,8 @@ function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
 }
 
 revivir(tablero);
+
+/* module.exports = {
+  revivir,
+  revisar_vecinos,
+}; */
