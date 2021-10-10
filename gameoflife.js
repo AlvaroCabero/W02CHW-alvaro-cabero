@@ -14,10 +14,12 @@ const tablero = Array(numfilas)
 
 for (let o = 0; o < tablero.length; o++) {
   for (let p = 0; p < tablero[o].length; p++) {
-    document.querySelectorAll(".board").insertAdjacentHtml(
+    
+    
+    /*document.querySelectorAll(".board").insertAdjacentHtml(
       "beforeend",
       `<div class="board__cell">
-    </div>`
+    </div>`*/
     );
   }
 }
