@@ -13,13 +13,11 @@ const tablero = Array(numfilas)
   .map(() => Array(numColumnas).fill(0));
 
 for (let o = 0; o < tablero.length; o++) {
-  for (let p = 0; p < tablero[o].length; p++) {
-    document.querySelectorAll(".tablero").insertAdjacentHtml(
-      "beforeend",
-      `<div className="tablero__empty">
-    <img src="img/cellempty.png" alt="imagen de célula vacía" className="tablero__cellempty" /></div>`
-    );
-  }
+  document.querySelectorAll(".board").insertAdjacentHtml(
+    "beforeend",
+    `<div class="board__cell">
+    </div>`
+  );
 }
 //configuración inicial de ejemplo básico
 for (let k = 0; k < 12; k++) {
