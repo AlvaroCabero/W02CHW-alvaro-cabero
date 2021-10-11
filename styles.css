@@ -22,14 +22,36 @@
   font-size: 50px;
   border: 1px;
   -webkit-text-stroke: 2px #cf687d;
+  text-shadow: 2px 2px 4px #000000;
+  animation: intro 1s ease-in-out;
+}
+.header_box__text:hover {
+  animation: light2 1.5s ease-in-out infinite alternate;
 }
 .header_box__of {
   color: #8179f5;
 }
 .header_box__life {
+  margin-right: 5px;
   color: #e9b7de;
 }
 
+@keyframes light2 {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #cee0f3;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 15px #cee0f3;
+  }
+}
+@keyframes intro {
+  from {
+    margin-bottom: 100%;
+  }
+  to {
+    margin-bottom: 0%;
+  }
+}
 .main_container {
   display: flex;
   justify-content: center;
@@ -54,11 +76,21 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  box-shadow: 1px 1px 8px #07135a;
 }
 .board__cell {
   height: 25px;
   width: 25px;
   background-color: red;
+}
+
+.game_canvas {
+  width: 70vw;
+  height: 80vh;
+  background-color: #b7f0fa;
+  border: dotted 1px #88bef1;
+  border-radius: 20px;
+  box-shadow: 2px 2px 8px #000000;
 }
 
 .footer_box {
