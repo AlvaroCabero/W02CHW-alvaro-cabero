@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: hsl(210, 60%, 88%);
+  background: hsl(187, 100%, 54%);
 
   &__text {
     color: rgb(220, 212, 248);
@@ -23,8 +23,9 @@
     -webkit-text-stroke: 2px rgb(207, 104, 125);
 
     text-shadow: 2px 2px 4px #000000;
-    animation: intro 1s ease-in-out;
-    animation-iteration-count: 3;
+    animation: intro 1s ease-in-out forwards;
+    animation-iteration-count: 1;
+    overflow: hidden;
     &:hover {
       animation: light2 1.5s ease-in-out infinite alternate;
     }
@@ -56,15 +57,15 @@
   }
 }
 .main_container {
-  height: 100vh;
   display: flex;
+
   justify-content: center;
   align-items: center;
-  color: rgb(129, 121, 245);
+  background-color: hsl(211, 100%, 79%);
   //box-shadow: 2px 2px 8px #000000;
 
   &__scenario {
-    background-color: rgb(233, 183, 222);
+    background-color: rgb(173, 253, 247);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +74,7 @@
 .board {
   margin: 15px 80px;
   padding: 5px 50px;
-  height: 400px;
+  height: 100vh;
   width: 100vw;
   background-color: rgb(129, 121, 245);
   border-radius: 20px;
