@@ -1,4 +1,4 @@
-window.onload = inicio;
+//window.onload = inicio;
 /*let tablero = [
   [0, 0, 0],
   [0, 0, 0],
@@ -37,6 +37,7 @@ for (let k = 15; k < 24; k++) {
 function inicio() {
   revivir(tablero);
 }
+revivir(tablero);
 console.table(tablero);
 
 function revivir(tablero_actual) {
@@ -126,7 +127,7 @@ function pintar_canvas(filas, columnas) {
         Math.floor(255 - 42.5 * j) +
         ")";
       canvas.beginPath();
-      canvas.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+      canvas.arc(5.5 + j * 25, 5.5 + i * 25, 10, 0, Math.PI * 2, true);
       canvas.stroke();
     }
   }
