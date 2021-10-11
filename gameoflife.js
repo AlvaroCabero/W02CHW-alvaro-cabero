@@ -1,28 +1,28 @@
+window.onload = inicio;
 /*let tablero = [
   [0, 0, 0],
   [0, 0, 0],
   [0, 0, 0],
 ];*/
 //let tablero_nuevo = [];
-//console.log(tablero);
-
+//console.log(tablero)
 const numfilas = 25;
 const numColumnas = 25;
 const tablero = Array(numfilas)
   .fill(0)
   .map(() => Array(numColumnas).fill(0));
 
-for (let o = 0; o < tablero.length; o++) {
+/*for (let o = 0; o < tablero.length; o++) {
   for (let p = 0; p < tablero[o].length; p++) {
     
     
     /*document.querySelectorAll(".board").insertAdjacentHtml(
       "beforeend",
       `<div class="board__cell">
-    </div>`*/
+    </div>`
     );
   }
-}
+}*/
 //configuración inicial de ejemplo básico
 for (let k = 0; k < 12; k++) {
   tablero[k][4] = 1;
@@ -34,6 +34,9 @@ for (let k = 15; k < 24; k++) {
   tablero[k][5] = 1;
 }
 
+function inicio() {
+  revivir(tablero);
+}
 console.table(tablero);
 
 function revivir(tablero_actual) {
@@ -42,6 +45,8 @@ function revivir(tablero_actual) {
   let tablero_nuevo = Array(numfilas)
     .fill(0)
     .map(() => Array(numColumnas).fill(0));
+
+  pintar_canvas(numfilas, numColumnas);
 
   let contador_vivos = 0;
 
@@ -109,7 +114,25 @@ function revisar_vecinos(tablero_revisado, posXActual, posYActual) {
   return contador_vecinos;
 }
 
-revivir(tablero);
+function pintar_canvas(filas, columnas) {
+  let canvas = document.querySelector(".game_canvas").getContext("2d");
+  console.log(canvas);
+  for (var i = 0; i < filas; i++) {
+    for (var j = 0; j < columnas; j++) {
+      canvas.strokeStyle =
+        "rgb(0, " +
+        Math.floor(255 - 42.5 * i) +
+        ", " +
+        Math.floor(255 - 42.5 * j) +
+        ")";
+      canvas.beginPath();
+      canvas.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+      canvas.stroke();
+    }
+  }
+}
+
+//revivir(tablero);
 
 /* module.exports = {
   revivir,

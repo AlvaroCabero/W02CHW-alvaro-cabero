@@ -15,24 +15,53 @@
   justify-content: center;
   align-items: center;
   background: hsl(210, 60%, 88%);
+
   &__text {
     color: rgb(220, 212, 248);
     font-size: 50px;
     border: 1px;
     -webkit-text-stroke: 2px rgb(207, 104, 125);
+
+    text-shadow: 2px 2px 4px #000000;
+    animation: intro 1s ease-in-out;
+    animation-iteration-count: 3;
+    &:hover {
+      animation: light2 1.5s ease-in-out infinite alternate;
+    }
   }
   &__of {
     color: rgb(129, 121, 245);
   }
   &__life {
+    margin-right: 5px;
     color: rgb(233, 183, 222);
   }
 }
+@keyframes light2 {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px hsl(210, 60%, 88%);
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 12px #fff,
+      0 0 15px hsl(210, 60%, 88%);
+  }
+}
+@keyframes intro {
+  from {
+    margin-bottom: 100%;
+  }
+
+  to {
+    margin-bottom: 0%;
+  }
+}
 .main_container {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(129, 121, 245);
+  //box-shadow: 2px 2px 8px #000000;
 
   &__scenario {
     background-color: rgb(233, 183, 222);
@@ -51,7 +80,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+
+  box-shadow: 1px 1px 8px #07135a;
 
   &__cell {
     height: 25px;
@@ -59,6 +89,15 @@
     background-color: red;
     //background: url("/imag/cellempty.png") 0 0 no-repeat transparent;
   }
+}
+
+.game_canvas {
+  width: 70vw;
+  height: 80vh;
+  background-color: rgb(183, 240, 250);
+  border: dotted 1px hsl(209, 79%, 74%);
+  border-radius: 20px;
+  box-shadow: 2px 2px 8px #000000;
 }
 .footer_box {
   width: 100vw;
